@@ -1,13 +1,13 @@
 rm(list = ls())
 data <- read.table("C:/Users/sroy/Documents/R/Exploratory Data Analysis/household_power_consumption.txt", header = T, sep = ";", na.strings = "?")
-# Get the dimensions so that it matches the dataset as prescribed by the 
+# Get the dimensions so that it matches the dataset as prescribed by the instructions
 dim(data)
 # consists of 9 columns and 2075259 rows
 #Will use data from the dates 2007-02-01 and 2007-02-02. One alternative is to read the data from
 #just those dates rather than reading in the entire dataset and subsetting to those dates
 str(data)
-
-# convert the date variable to Date class as the Date is a Factor variable
+# date field is a factor variable in this dataset:data
+# converting the date variable to Date class as the Date field is a Factor variable
 data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 data1<-subset(data,subset = (Date >= "2007-02-01" & Date <= "2007-02-02"))
 str(data1)
